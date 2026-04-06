@@ -30,6 +30,31 @@ const COMMANDS = [
   { cmd: "/rules",      desc: "Muestra las reglas del servidor.",              cat: "Info",     color: "indigo"  },
 ];
 
+// 💡 NOTICIAS — edita aquí cada semana
+const NEWS = [
+  {
+    date:  "15 Dic 2024",
+    tag:   "Evento",
+    color: "gold",
+    title: "Torneo de PvP Navideño 🎄",
+    desc:  "Este sábado a las 7pm hora México. Premio: 5,000 monedas y rango VIP por un mes. ¡Inscríbete en Discord!",
+  },
+  {
+    date:  "10 Dic 2024",
+    tag:   "Actualización",
+    color: "emerald",
+    title: "Nueva zona de farms desbloqueada",
+    desc:  "El área al norte del spawn ya está disponible. Incluye granja de hierro, trigo y una raid farm comunitaria.",
+  },
+  {
+    date:  "3 Dic 2024",
+    tag:   "Info",
+    color: "sky",
+    title: "Servidor migrado a nuevo hosting",
+    desc:  "Mejoramos el servidor a uno con 8GB RAM y SSD NVMe. La latencia bajó de 80ms a menos de 20ms.",
+  },
+];
+
 /* Colores para las categorías */
 const CAT_COLORS = {
   emerald: { bg: "rgba(52,211,153,0.08)",  text: "#34d399", border: "rgba(52,211,153,0.2)"  },
@@ -120,12 +145,11 @@ function copyIP() {
 async function fetchServerStatus() {
   try {
     /* ── Descomenta las siguientes líneas cuando tengas API ── */
-    // const res  = await fetch(`https://api.mcsrvstat.us/bedrock/3/${CONFIG.serverIP}`);
-    // const data = await res.json();
-    // setStatus(data.online, data.players?.online ?? 0, data.players?.max ?? 0);
+    const res  = await fetch(`https://api.mcsrvstat.us/bedrock/3/${CONFIG.serverIP}`);
+    const data = await res.json();
+    setStatus(data.online, data.players?.online ?? 0, data.players?.max ?? 0);
 
-    /* ── Demo: estado hardcodeado (quita esto cuando uses la API) ── */
-    setStatus(true, "—", "—");
+    
 
   } catch (e) {
     setStatus(false, 0, 0);
