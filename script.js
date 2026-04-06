@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   initParticles();
   renderCommands();
+  renderNews(); // ← Noticias semanales
   fetchServerStatus();
   updateDiscordLinks();
 });
