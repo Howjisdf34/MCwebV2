@@ -55,6 +55,31 @@ const NEWS = [
   },
 ];
 
+function renderNews() {
+  const CAT_COLORS = {
+    gold:    { bg: "rgba(251,191,36,0.08)",  text: "#fbbf24", border: "rgba(251,191,36,0.2)"  },
+    emerald: { bg: "rgba(52,211,153,0.08)",  text: "#34d399", border: "rgba(52,211,153,0.2)"  },
+    sky:     { bg: "rgba(56,189,248,0.08)",  text: "#38bdf8", border: "rgba(56,189,248,0.2)"  },
+  };
+
+  const container = document.getElementById("newsContainer");
+  container.innerHTML = NEWS.map(n => {
+    const col = CAT_COLORS[n.color] || CAT_COLORS.emerald;
+    return `
+      <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between mb-3">
+          <span class="cmd-category text-xs font-bold px-3 py-1 rounded-full border"
+                style="background:${col.bg};color:${col.text};border-color:${col.border}">
+            ${n.tag}
+          </span>
+          <span class="text-xs text-gray-600 font-mono">${n.date}</span>
+        </div>
+        <h3 class="text-white font-black text-lg mb-2">${n.title}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">${n.desc}</p>
+      </div>`;
+  }).join("");
+}
+
 /* Colores para las categorías */
 const CAT_COLORS = {
   emerald: { bg: "rgba(52,211,153,0.08)",  text: "#34d399", border: "rgba(52,211,153,0.2)"  },
