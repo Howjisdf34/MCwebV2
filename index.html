@@ -27,13 +27,19 @@
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <!-- Logo -->
       <a href="#hero" class="flex items-center gap-2 group">
-        <img src="Nine.png" alt="Ohmdail" class="w-8 h-8 object-contain" />
+        <!-- 💡 LOGO: pon tu imagen como logo.png en la misma carpeta -->
+        <img id="navLogo" src="logo.png" alt="Ohmdail Logo"
+             class="w-8 h-8 object-contain rounded group-hover:scale-110 transition-transform"
+             onerror="this.style.display='none'; document.getElementById('navLogoFallback').style.display='block'" />
+        <div id="navLogoFallback" style="display:none"
+             class="w-8 h-8 minecraft-block bg-emerald-500 shadow-lg shadow-emerald-500/50 group-hover:scale-110 transition-transform"></div>
         <span class="text-lg font-black tracking-widest text-white">OHMDAIL</span>
       </a>
       <!-- Links (desktop) -->
       <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-400">
         <a href="#status"   class="hover:text-emerald-400 transition-colors">Estado</a>
         <a href="#features" class="hover:text-emerald-400 transition-colors">Características</a>
+        <a href="#news"     class="hover:text-emerald-400 transition-colors">Noticias</a>
         <a href="#commands" class="hover:text-emerald-400 transition-colors">Comandos</a>
         <a href="#discord"  class="nav-discord-btn px-4 py-2 rounded-lg text-white font-bold text-sm">Discord</a>
       </div>
@@ -49,6 +55,7 @@
       <div class="flex flex-col gap-3 text-sm font-semibold text-gray-300">
         <a href="#status"   onclick="closeMobileMenu()" class="hover:text-emerald-400 transition-colors py-2">Estado del Servidor</a>
         <a href="#features" onclick="closeMobileMenu()" class="hover:text-emerald-400 transition-colors py-2">Características</a>
+        <a href="#news"     onclick="closeMobileMenu()" class="hover:text-emerald-400 transition-colors py-2">Noticias</a>
         <a href="#commands" onclick="closeMobileMenu()" class="hover:text-emerald-400 transition-colors py-2">Comandos</a>
         <a href="#discord"  onclick="closeMobileMenu()" class="text-center py-2 px-4 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-colors">Discord</a>
       </div>
@@ -88,7 +95,7 @@
         <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
         </svg>
-        <span id="copyBtnText">Copiar IP — ohmdail.playit.pub</span>
+        <span id="copyBtnText">Copiar IP — play.ohmdail.net</span>
       </button>
 
       <!-- Discord -->
@@ -103,7 +110,7 @@
     <!-- Puerto Bedrock tip -->
     <p class="mt-6 text-xs text-gray-600 font-mono"
        data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
-      Puerto: 5439 &nbsp;·&nbsp; Bedrock Edition
+      Puerto: 19132 &nbsp;·&nbsp; Bedrock Edition
     </p>
 
     <!-- Scroll indicator -->
@@ -140,8 +147,8 @@
               <span id="statusDot" class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse shadow-lg shadow-emerald-400/50"></span>
               <span id="statusText" class="text-emerald-400 font-bold text-sm tracking-widest">ONLINE</span>
             </div>
-            <h3 class="text-2xl font-black text-white mb-1">ohmdail.playit.pub</h3>
-            <p class="text-gray-500 text-sm font-mono">Puerto: 5439 &nbsp;·&nbsp; Bedrock Edition</p>
+            <h3 class="text-2xl font-black text-white mb-1">play.ohmdail.net</h3>
+            <p class="text-gray-500 text-sm font-mono">Puerto: 19132 &nbsp;·&nbsp; Bedrock Edition</p>
           </div>
           <!-- Stats -->
           <div class="flex sm:flex-col gap-6 sm:gap-4 text-center">
@@ -178,7 +185,11 @@
           </div>
         </div>
 
-        
+        <!-- Nota API -->
+        <p class="text-center text-xs text-gray-700 mt-4 font-mono">
+          <!-- 💡 PARA CONECTAR LA API: edita la función fetchServerStatus() en script.js -->
+          Conecta tu API en <code class="text-gray-500">script.js</code> → <code class="text-gray-500">fetchServerStatus()</code>
+        </p>
       </div>
     </div>
   </section>
@@ -260,17 +271,23 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  NEWS SECTION                               -->
+  <!-- 💡 EDITAR NOTICIAS: modifica NEWS[] en script.js -->
+  <!-- ═══════════════════════════════════════════ -->
   <section id="news" class="relative z-10 py-20 px-4">
-  <div class="max-w-5xl mx-auto">
-    <div class="section-label text-center mb-3">NOVEDADES</div>
-    <h2 class="section-title text-center mb-12">
-      Noticias del <span class="text-emerald-400">Servidor</span>
-    </h2>
-    <div id="newsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Las noticias se generan automáticamente desde script.js -->
+    <div class="max-w-5xl mx-auto">
+      <div class="section-label text-center mb-3" data-aos="fade-up">NOVEDADES</div>
+      <h2 class="section-title text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+        Noticias del <span class="text-emerald-400">Servidor</span>
+      </h2>
+      <p class="text-center text-gray-600 text-xs font-mono mb-12" data-aos="fade-up" data-aos-delay="150">
+        Actualiza el arreglo <code class="text-gray-500">NEWS</code> en <code class="text-gray-500">script.js</code> cada semana
+      </p>
+      <!-- Las tarjetas se inyectan desde JS -->
+      <div id="newsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- ═══════════════════════════════════════════ -->
   <!--  COMMANDS SECTION                           -->
@@ -308,7 +325,10 @@
         </div>
       </div>
 
-      
+      <p class="text-center text-xs text-gray-700 mt-4 font-mono">
+        <!-- 💡 EDITAR COMANDOS: Modifica el array COMMANDS en script.js -->
+        Edita la lista en <code class="text-gray-500">script.js</code> → <code class="text-gray-500">COMMANDS</code>
+      </p>
     </div>
   </section>
 
@@ -330,7 +350,7 @@
           </div>
           <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">Únete a la Comunidad</h2>
           <p class="text-gray-400 mb-8 max-w-md mx-auto leading-relaxed">
-            Más de <span class="text-white font-bold">11 miembros</span> activos en nuestro Discord. Anuncios, soporte, eventos y mucho más.
+            Más de <span class="text-white font-bold">500 miembros</span> activos en nuestro Discord. Anuncios, soporte, eventos y mucho más.
           </p>
           <a href="https://discord.gg/TU-ENLACE-AQUI" target="_blank" rel="noopener"
              class="discord-join-btn inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95">
@@ -352,7 +372,12 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <!-- Logo -->
         <div class="flex items-center gap-3">
-          <img src="Nine.png" alt="Ohmdail" class="w-8 h-8 object-contain" />
+          <!-- 💡 LOGO FOOTER: misma imagen logo.png -->
+          <img src="logo.png" alt="Ohmdail Logo"
+               class="w-8 h-8 object-contain rounded"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+          <div style="display:none"
+               class="w-8 h-8 minecraft-block bg-emerald-500/30 border border-emerald-500/30 rounded"></div>
           <div>
             <p class="font-black text-white tracking-widest">OHMDAIL</p>
             <p class="text-xs text-gray-600">Servidor de Minecraft Bedrock</p>
@@ -363,12 +388,13 @@
           <a href="#hero" class="hover:text-gray-300 transition-colors">Inicio</a>
           <a href="#status" class="hover:text-gray-300 transition-colors">Estado</a>
           <a href="#features" class="hover:text-gray-300 transition-colors">Características</a>
+          <a href="#news" class="hover:text-gray-300 transition-colors">Noticias</a>
           <a href="#commands" class="hover:text-gray-300 transition-colors">Comandos</a>
           <a href="https://discord.gg/TU-ENLACE-AQUI" target="_blank" rel="noopener" class="hover:text-indigo-400 transition-colors">Discord</a>
         </div>
         <!-- Copyright -->
         <p class="text-xs text-gray-700">
-          © 2026 Ohmdail · Hecho con 💚
+          © 2024 Ohmdail · Hecho con 💚
         </p>
       </div>
     </div>

@@ -6,33 +6,46 @@
    💡 CONFIGURACIÓN PRINCIPAL — edita aquí
    ══════════════════════════════════════════════════ */
 const CONFIG = {
-  serverIP:   "ohmdail.playit.pub",  // IP del servidor
-  serverPort: 5439,               // Puerto Bedrock
-  discordURL: "https://discord.com/invite/pWygcbbZGe",  // 💡 Cambia tu link de Discord
+  serverIP:   "play.ohmdail.net",  // IP del servidor
+  serverPort: 19132,               // Puerto Bedrock
+  discordURL: "https://discord.gg/TU-ENLACE-AQUI",  // 💡 Cambia tu link de Discord
 };
 
-// 💡 NOTICIAS — edita aquí cada semana
+/* ══════════════════════════════════════════════════
+   💡 NOTICIAS — edita aquí cada semana
+   Campos:
+     date  → Fecha visible (texto libre, ej: "15 Dic 2024")
+     tag   → Etiqueta corta (ej: "Evento", "Update", "Info")
+     color → "emerald" | "gold" | "sky" | "purple" | "indigo"
+     title → Título de la noticia
+     desc  → Descripción corta
+     img   → Ruta de tu imagen (ej: "imgs/evento.png") o URL externa.
+             Déjalo en "" para mostrar un placeholder automático.
+   ══════════════════════════════════════════════════ */
 const NEWS = [
   {
-    date:  "15 Dic 2026",
+    date:  "15 Dic 2024",
     tag:   "Evento",
     color: "gold",
     title: "Torneo de PvP Navideño 🎄",
     desc:  "Este sábado a las 7pm hora México. Premio: 5,000 monedas y rango VIP por un mes. ¡Inscríbete en Discord!",
+    img:   "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80",
   },
   {
-    date:  "8 Abril 2026",
+    date:  "10 Dic 2024",
     tag:   "Actualización",
     color: "emerald",
-    title: "Pagina oficial del servidor",
-    desc:  "El servidor ya tiene pagina web oficial , para una mejor cominicacion de avisos con la comunidad.",
+    title: "Nueva zona de farms desbloqueada",
+    desc:  "El área al norte del spawn ya está disponible. Incluye granja de hierro, trigo y una raid farm comunitaria.",
+    img:   "https://images.unsplash.com/photo-1500964757637-c85e8a162699?w=600&q=80",
   },
   {
-    date:  "3 Dic 2025",
+    date:  "3 Dic 2024",
     tag:   "Info",
     color: "sky",
     title: "Servidor migrado a nuevo hosting",
     desc:  "Mejoramos el servidor a uno con 8GB RAM y SSD NVMe. La latencia bajó de 80ms a menos de 20ms.",
+    img:   "",
   },
 ];
 
@@ -55,31 +68,6 @@ const COMMANDS = [
   { cmd: "/rules",      desc: "Muestra las reglas del servidor.",              cat: "Info",     color: "indigo"  },
 ];
 
-function renderNews() {
-  const CAT_COLORS = {
-    gold:    { bg: "rgba(251,191,36,0.08)",  text: "#fbbf24", border: "rgba(251,191,36,0.2)"  },
-    emerald: { bg: "rgba(52,211,153,0.08)",  text: "#34d399", border: "rgba(52,211,153,0.2)"  },
-    sky:     { bg: "rgba(56,189,248,0.08)",  text: "#38bdf8", border: "rgba(56,189,248,0.2)"  },
-  };
-
-  const container = document.getElementById("newsContainer");
-  container.innerHTML = NEWS.map(n => {
-    const col = CAT_COLORS[n.color] || CAT_COLORS.emerald;
-    return `
-      <div class="glass-card rounded-;'/ b2xl p-6 hover:-translate-y-1 transition-transform duration-300">
-        <div class="flex items-center justify-between mb-3">
-          <span class="cmd-category text-xs font-bold px-3 py-1 rounded-full border"
-                style="background:${col.bg};color:${col.text};border-color:${col.border}">
-            ${n.tag}
-          </span>
-          <span class="text-xs text-gray-600 font-mono">${n.date}</span>
-        </div>
-        <h3 class="text-white font-black text-lg mb-2">${n.title}</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">${n.desc}</p>
-      </div>`;
-  }).join("");
-}
-
 /* Colores para las categorías */
 const CAT_COLORS = {
   emerald: { bg: "rgba(52,211,153,0.08)",  text: "#34d399", border: "rgba(52,211,153,0.2)"  },
@@ -97,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   initParticles();
   renderCommands();
-  renderNews(); // ← Noticias semanales
+  renderNews();
   fetchServerStatus();
   updateDiscordLinks();
 });
@@ -161,23 +149,17 @@ function copyIP() {
 
 /* ══════════════════════════════════════════════════
    SERVER STATUS
-   💡 PARA CONECTAR TU API:
-      Reemplaza el bloque de ejemplo con tu llamada real.
-      Ejemplo con mcsrvstat.us (Bedrock):
-      const res  = await fetch(`https://api.mcsrvstat.us/bedrock/3/${CONFIG.serverIP}`);
-      const data = await res.json();
-      setStatus(data.online, data.players?.online, data.players?.max);
+   💡 La API de mcsrvstat.us ya está conectada.
+      Si tu servidor aún no está en línea, mostrará
+      OFFLINE automáticamente — no hay que tocar nada más.
    ══════════════════════════════════════════════════ */
 async function fetchServerStatus() {
   try {
-    /* ── Descomenta las siguientes líneas cuando tengas API ── */
     const res  = await fetch(`https://api.mcsrvstat.us/bedrock/3/${CONFIG.serverIP}`);
     const data = await res.json();
     setStatus(data.online, data.players?.online ?? 0, data.players?.max ?? 0);
-
-    
-
   } catch (e) {
+    /* Si la API falla por red, muestra offline */
     setStatus(false, 0, 0);
   }
 }
@@ -201,6 +183,59 @@ function setStatus(online, players, maxPlayers) {
     text.textContent = "OFFLINE";
     h2.innerHTML = 'Servidor <span class="text-red-400">Offline</span>';
   }
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER NEWS
+   ══════════════════════════════════════════════════ */
+function renderNews() {
+  const container = document.getElementById("newsContainer");
+  if (!container) return;
+
+  container.innerHTML = NEWS.map((n, i) => {
+    const col = CAT_COLORS[n.color] || CAT_COLORS.emerald;
+
+    /* Si no hay imagen, genera un placeholder con gradiente y un ícono */
+    const imgContent = n.img
+      ? `<img src="${n.img}" alt="${n.title}"
+              class="news-thumb-img w-full h-full object-cover" />`
+      : `<div class="w-full h-full flex items-center justify-center news-thumb-placeholder"
+              style="background: linear-gradient(135deg, ${col.bg}, rgba(0,0,0,0.3))">
+           <svg class="w-8 h-8 opacity-40" style="color:${col.text}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                   d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+           </svg>
+         </div>`;
+
+    return `
+      <div class="news-card glass-card rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300 hover:border-white/10"
+           data-aos="fade-up" data-aos-duration="600" data-aos-delay="${i * 100}">
+
+        <!-- Thumbnail con zoom en hover -->
+        <div class="news-thumb-wrapper relative overflow-hidden"
+             style="height: 140px; border-bottom: 1px solid rgba(255,255,255,0.05)">
+          ${imgContent}
+          <!-- Overlay con gradiente para suavizar el borde inferior -->
+          <div class="absolute inset-0 news-thumb-overlay pointer-events-none"></div>
+          <!-- Badge de categoría flotante sobre la imagen -->
+          <span class="absolute top-3 left-3 text-xs font-bold px-2 py-1 rounded-md border tracking-widest backdrop-blur-sm"
+                style="background:rgba(0,0,0,0.55);color:${col.text};border-color:${col.border}">
+            ${n.tag.toUpperCase()}
+          </span>
+        </div>
+
+        <!-- Contenido de texto -->
+        <div class="p-5">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs text-gray-600 font-mono">${n.date}</span>
+          </div>
+          <h3 class="text-white font-black text-base mb-2 leading-snug">${n.title}</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">${n.desc}</p>
+        </div>
+      </div>`;
+  }).join("");
+
+  if (typeof AOS !== "undefined") AOS.refresh();
 }
 
 /* ══════════════════════════════════════════════════

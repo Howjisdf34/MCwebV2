@@ -269,7 +269,50 @@ body {
   opacity: 0.6;
 }
 
-/* ─── AOS override ───────────────────────────────── */
+/* ─── News cards con imagen ───────────────────────── */
+.news-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.news-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor del thumbnail — recorta la imagen */
+.news-thumb-wrapper {
+  cursor: zoom-in;
+}
+
+/* La imagen crece suavemente al pasar el cursor sobre la TARJETA */
+.news-card:hover .news-thumb-img {
+  transform: scale(1.08);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.news-thumb-img {
+  transform: scale(1);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* Gradiente oscuro en la parte inferior del thumb para que el badge se lea bien */
+.news-thumb-overlay {
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(13, 17, 23, 0.6) 100%
+  );
+}
+
+/* Placeholder sin imagen */
+.news-thumb-placeholder {
+  background-size: 200% 200%;
+  animation: placeholderShift 6s ease infinite;
+}
+@keyframes placeholderShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 [data-aos] { will-change: transform, opacity; }
 
 /* ─── Responsive adjustments ─────────────────────── */
