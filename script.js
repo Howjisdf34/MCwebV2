@@ -6,9 +6,9 @@
    💡 CONFIGURACIÓN PRINCIPAL — edita aquí
    ══════════════════════════════════════════════════ */
 const CONFIG = {
-  serverIP:   "play.ohmdail.net",  // IP del servidor
-  serverPort: 19132,               // Puerto Bedrock
-  discordURL: "https://discord.gg/TU-ENLACE-AQUI",  // 💡 Cambia tu link de Discord
+  serverIP:   "ohmdail.playit.pub",  // IP del servidor
+  serverPort: 9016,               // Puerto Bedrock
+  discordURL: "https://discord.gg/pWygcbbZGe",  // 💡 Cambia tu link de Discord
 };
 
 /* ══════════════════════════════════════════════════
