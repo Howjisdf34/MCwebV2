@@ -43,8 +43,8 @@ const NEWS = [
     date:  "8 Abril 2026",
     tag:   "Actualización",
     color: "emerald",
-    title: "Nueva zona de farms desbloqueada",
-    desc:  "El área al norte del spawn ya está disponible. Incluye granja de hierro, trigo y una raid farm comunitaria.",
+    title: "Pagina oficial del servidor",
+    desc:  "El servidor ya tiene pagina web oficial , para una mejor cominicacion de avisos con la comunidad.",
   },
   {
     date:  "3 Dic 2025",
