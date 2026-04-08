@@ -11,25 +11,6 @@ const CONFIG = {
   discordURL: "https://discord.com/invite/pWygcbbZGe",  // 💡 Cambia tu link de Discord
 };
 
-/* ══════════════════════════════════════════════════
-   💡 COMANDOS — agrega, quita o edita aquí
-   Campos: cmd (texto), desc (descripción), cat (categoría), color (estilo CSS)
-   ══════════════════════════════════════════════════ */
-const COMMANDS = [
-  { cmd: "/spawn",      desc: "Regresa al spawn principal del servidor.",      cat: "General",  color: "emerald" },
-  { cmd: "/sethome",    desc: "Establece tu punto de inicio personalizado.",   cat: "General",  color: "emerald" },
-  { cmd: "/home",       desc: "Teletransporte a tu punto de inicio.",          cat: "General",  color: "emerald" },
-  { cmd: "/tpa",        desc: "Solicita teletransporte a otro jugador.",       cat: "Social",   color: "sky"     },
-  { cmd: "/tpahere",    desc: "Invita a otro jugador a tu ubicación.",         cat: "Social",   color: "sky"     },
-  { cmd: "/pay",        desc: "Envía dinero a otro jugador.",                  cat: "Economía", color: "gold"    },
-  { cmd: "/bal",        desc: "Consulta tu balance actual.",                   cat: "Economía", color: "gold"    },
-  { cmd: "/shop",       desc: "Abre la tienda global del servidor.",           cat: "Economía", color: "gold"    },
-  { cmd: "/claim",      desc: "Reclama el chunk en el que estás parado.",      cat: "Protección", color: "purple" },
-  { cmd: "/trust",      desc: "Da acceso a tu terreno a otro jugador.",        cat: "Protección", color: "purple" },
-  { cmd: "/discord",    desc: "Obtén el enlace al servidor de Discord.",       cat: "Info",     color: "indigo"  },
-  { cmd: "/rules",      desc: "Muestra las reglas del servidor.",              cat: "Info",     color: "indigo"  },
-];
-
 // 💡 NOTICIAS — edita aquí cada semana
 const NEWS = [
   {
@@ -55,6 +36,25 @@ const NEWS = [
   },
 ];
 
+/* ══════════════════════════════════════════════════
+   💡 COMANDOS — agrega, quita o edita aquí
+   Campos: cmd (texto), desc (descripción), cat (categoría), color (estilo CSS)
+   ══════════════════════════════════════════════════ */
+const COMMANDS = [
+  { cmd: "/spawn",      desc: "Regresa al spawn principal del servidor.",      cat: "General",  color: "emerald" },
+  { cmd: "/sethome",    desc: "Establece tu punto de inicio personalizado.",   cat: "General",  color: "emerald" },
+  { cmd: "/home",       desc: "Teletransporte a tu punto de inicio.",          cat: "General",  color: "emerald" },
+  { cmd: "/tpa",        desc: "Solicita teletransporte a otro jugador.",       cat: "Social",   color: "sky"     },
+  { cmd: "/tpahere",    desc: "Invita a otro jugador a tu ubicación.",         cat: "Social",   color: "sky"     },
+  { cmd: "/pay",        desc: "Envía dinero a otro jugador.",                  cat: "Economía", color: "gold"    },
+  { cmd: "/bal",        desc: "Consulta tu balance actual.",                   cat: "Economía", color: "gold"    },
+  { cmd: "/shop",       desc: "Abre la tienda global del servidor.",           cat: "Economía", color: "gold"    },
+  { cmd: "/claim",      desc: "Reclama el chunk en el que estás parado.",      cat: "Protección", color: "purple" },
+  { cmd: "/trust",      desc: "Da acceso a tu terreno a otro jugador.",        cat: "Protección", color: "purple" },
+  { cmd: "/discord",    desc: "Obtén el enlace al servidor de Discord.",       cat: "Info",     color: "indigo"  },
+  { cmd: "/rules",      desc: "Muestra las reglas del servidor.",              cat: "Info",     color: "indigo"  },
+];
+
 function renderNews() {
   const CAT_COLORS = {
     gold:    { bg: "rgba(251,191,36,0.08)",  text: "#fbbf24", border: "rgba(251,191,36,0.2)"  },
@@ -66,7 +66,7 @@ function renderNews() {
   container.innerHTML = NEWS.map(n => {
     const col = CAT_COLORS[n.color] || CAT_COLORS.emerald;
     return `
-      <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300">
+      <div class="glass-card rounded-;'/ b2xl p-6 hover:-translate-y-1 transition-transform duration-300">
         <div class="flex items-center justify-between mb-3">
           <span class="cmd-category text-xs font-bold px-3 py-1 rounded-full border"
                 style="background:${col.bg};color:${col.text};border-color:${col.border}">
