@@ -33,21 +33,21 @@ const COMMANDS = [
 // 💡 NOTICIAS — edita aquí cada semana
 const NEWS = [
   {
-    date:  "15 Dic 2024",
+    date:  "15 Dic 2026",
     tag:   "Evento",
     color: "gold",
     title: "Torneo de PvP Navideño 🎄",
     desc:  "Este sábado a las 7pm hora México. Premio: 5,000 monedas y rango VIP por un mes. ¡Inscríbete en Discord!",
   },
   {
-    date:  "10 Dic 2024",
+    date:  "8 Abril 2026",
     tag:   "Actualización",
     color: "emerald",
     title: "Nueva zona de farms desbloqueada",
     desc:  "El área al norte del spawn ya está disponible. Incluye granja de hierro, trigo y una raid farm comunitaria.",
   },
   {
-    date:  "3 Dic 2024",
+    date:  "3 Dic 2025",
     tag:   "Info",
     color: "sky",
     title: "Servidor migrado a nuevo hosting",
