@@ -8,7 +8,7 @@
 const CONFIG = {
   serverIP:   "ohmdail.playit.pub",  // IP del servidor
   serverPort: 9016,               // Puerto Bedrock
-  discordURL: "https://discord.gg/pWygcbbZGe",  // 💡 Cambia tu link de Discord
+  discordURL: "https://discord.gg/pWygcbbZGe",  // 💡link de Discord
 };
 
 /* ══════════════════════════════════════════════════
@@ -30,7 +30,7 @@ const NEWS = [
     title: "Nuevas mochilas llegan!",
     desc:  "Por primera vez se a agregado un addon al servidor , gracias a la comunidad",
     img:   "https://media.forgecdn.net/attachments/1417/708/mcpedl-png.png",
-    link:  "https://mcpedl.com/bony162backpacks/",  // ← agrega esta línea
+    link:  "https://mcpedl.com/bony162backpacks/",  
   },
   {
     date:  "10 Dic 2024",
