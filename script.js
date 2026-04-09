@@ -157,11 +157,11 @@ function copyIP() {
    ══════════════════════════════════════════════════ */
 async function fetchServerStatus() {
   try {
-    const res  = await fetch(`https://api.mcsrvstat.us/bedrock/3/${CONFIG.serverIP}`);
+    const res  = await fetch(`https://api.mcsrvstat.us/3/${CONFIG.serverIP}`);
     const data = await res.json();
+    console.log(data); // ← abre la consola del navegador (F12) y dime qué aparece
     setStatus(data.online, data.players?.online ?? 0, data.players?.max ?? 0);
   } catch (e) {
-    /* Si la API falla por red, muestra offline */
     setStatus(false, 0, 0);
   }
 }
