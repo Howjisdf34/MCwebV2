@@ -24,28 +24,30 @@ const CONFIG = {
    ══════════════════════════════════════════════════ */
 const NEWS = [
   {
-    date:  "15 Dic 2024",
-    tag:   "Evento",
-    color: "gold",
-    title: "Torneo de PvP Navideño 🎄",
-    desc:  "Este sábado a las 7pm hora México. Premio: 5,000 monedas y rango VIP por un mes. ¡Inscríbete en Discord!",
-    img:   "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80",
+    date:  "8 Abril 2026",
+    tag:   "Actualización", /*aqui era Evento */
+    color: "emerald",  /*gold */
+    title: "Nuevas mochilas llegan!",
+    desc:  "Por primera vez se a agregado un addon al servidor , gracias a la comunidad",
+    img:   "https://media.forgecdn.net/attachments/1417/708/mcpedl-png.png",
+    link:  "https://mcpedl.com/bony162backpacks/",  // ← agrega esta línea
   },
   {
     date:  "10 Dic 2024",
     tag:   "Actualización",
     color: "emerald",
-    title: "Nueva zona de farms desbloqueada",
-    desc:  "El área al norte del spawn ya está disponible. Incluye granja de hierro, trigo y una raid farm comunitaria.",
-    img:   "https://images.unsplash.com/photo-1500964757637-c85e8a162699?w=600&q=80",
+    title: "Servidor de discord mejorado",
+    desc:  "El servidor proximamente contara con diversas funcionalidades.",
+    img:   "https://cdn2.unrealengine.com/what-is-discord-1920x1080-c3d90ca45f57.jpg",
+    
   },
   {
-    date:  "3 Dic 2024",
+    date:  "8 Abril 2026",
     tag:   "Info",
     color: "sky",
-    title: "Servidor migrado a nuevo hosting",
-    desc:  "Mejoramos el servidor a uno con 8GB RAM y SSD NVMe. La latencia bajó de 80ms a menos de 20ms.",
-    img:   "",
+    title: "La comunidad tambien participa",
+    desc:  "Cada cierto tiempo la comunidad tendra la opcion de votar por un addon para el servidor.",
+    img:   "https://i.ytimg.com/vi/rRJ5fn1Zpao/maxresdefault.jpg",
   },
 ];
 
@@ -231,6 +233,11 @@ function renderNews() {
           </div>
           <h3 class="text-white font-black text-base mb-2 leading-snug">${n.title}</h3>
           <p class="text-gray-500 text-xs leading-relaxed">${n.desc}</p>
+          ${n.link ? `<a href="${n.link}" target="_blank" rel="noopener"
+          class="inline-flex items-center gap-1 mt-3 text-xs font-bold transition-colors"
+          style="color:${col.text}">
+          Leer más →
+          </a>` : ""}
         </div>
       </div>`;
   }).join("");
