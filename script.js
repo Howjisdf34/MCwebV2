@@ -27,6 +27,15 @@ const NEWS = [
     date:  "11 Abril 2026",
     tag:   "Actualización", /*aqui era Evento */
     color: "emerald",  /*gold */
+    title: "Nuevas tierras a explorar",
+    desc:  "Nuevos biomas y estructuras para explorar , una aventura te espera.",
+    img:   "https://i.imgur.com/UdDvzrx.jpeg",
+    link:  "https://mcpedl.com/better-on-bedrock/",  
+  },
+  {
+    date:  "11 Abril 2026",
+    tag:   "Actualización", /*aqui era Evento */
+    color: "emerald",  /*gold */
     title: "A decorar increible",
     desc:  "Ahora tienes a tu disposicion mas de 2000 muebles gracias a un nuevo addon , que disfrutes.",
     img:   "https://www.trmc-addons.com/add-ons/craftopia-furniture/images/1.webp",
@@ -43,8 +52,8 @@ const NEWS = [
   },
   {
     date:  "8 Abril 2026 ",
-    tag:   "Actualización",
-    color: "emerald",
+    tag:   "Info",
+    color: "sky",
     title: "Servidor de discord mejorado",
     desc:  "El servidor proximamente contara con diversas funcionalidades.",
     img:   "https://cdn2.unrealengine.com/what-is-discord-1920x1080-c3d90ca45f57.jpg",
