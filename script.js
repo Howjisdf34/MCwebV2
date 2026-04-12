@@ -42,7 +42,7 @@ const NEWS = [
     link:  "https://mcpedl.com/bony162backpacks/",  
   },
   {
-    date:  "10 Dic 2024",
+    date:  "8 Abril 2026 ",
     tag:   "Actualización",
     color: "emerald",
     title: "Servidor de discord mejorado",
