@@ -24,21 +24,22 @@ const CONFIG = {
    ══════════════════════════════════════════════════ */
 const NEWS = [
   {
-    date:  "11 Abril 2026",
-    tag:   "Actualizacion",
-    color: "sky",
-    title: "Nuevos muebles llegan a  ohmdail",
-    desc:  "Se a agregado un nuevo addon , ahora tienes mas de 2000 muebles para elegir.",
-    img:   "https://www.trmc-addons.com/add-ons/craftopia-furniture/images/1.webp",
-  },
-  {
-    date:  "8 Abril 2026",
+    date:  "9 Abril 2026",
     tag:   "Actualización", /*aqui era Evento */
     color: "emerald",  /*gold */
     title: "Nuevas mochilas llegan!",
     desc:  "Por primera vez se a agregado un addon al servidor , gracias a la comunidad",
     img:   "https://media.forgecdn.net/attachments/1417/708/mcpedl-png.png",
     link:  "https://mcpedl.com/bony162backpacks/",  
+  },
+  {
+    date:  "10 Dic 2024",
+    tag:   "Actualización",
+    color: "emerald",
+    title: "Servidor de discord mejorado",
+    desc:  "El servidor proximamente contara con diversas funcionalidades.",
+    img:   "https://cdn2.unrealengine.com/what-is-discord-1920x1080-c3d90ca45f57.jpg",
+    
   },
   {
     date:  "8 Abril 2026",
