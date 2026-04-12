@@ -24,6 +24,14 @@ const CONFIG = {
    ══════════════════════════════════════════════════ */
 const NEWS = [
   {
+    date:  "11 Abril 2026",
+    tag:   "Actualizacion",
+    color: "sky",
+    title: "Nuevos muebles llegan a  ohmdail",
+    desc:  "Se a agregado un nuevo addon , ahora tienes mas de 2000 muebles para elegir.",
+    img:   "https://www.trmc-addons.com/add-ons/craftopia-furniture/images/1.webp",
+  },
+  {
     date:  "8 Abril 2026",
     tag:   "Actualización", /*aqui era Evento */
     color: "emerald",  /*gold */
