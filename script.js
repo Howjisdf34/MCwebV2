@@ -24,7 +24,16 @@ const CONFIG = {
    ══════════════════════════════════════════════════ */
 const NEWS = [
   {
-    date:  "31 Abril 2026",
+    date:  "11 Abril 2026",
+    tag:   "Actualización", /*aqui era Evento */
+    color: "emerald",  /*gold */
+    title: "A decora increible",
+    desc:  "Ahora tienes a tu disposicion mas de 2000 muebles gracias a un nuevo addon , que disfrutes.",
+    img:   "https://www.trmc-addons.com/add-ons/craftopia-furniture/images/1.webp",
+    link:  "https://mcpedl.com/craftopia-furniture/",  
+  },
+  {
+    date:  "8 Abril 2026",
     tag:   "Actualización", /*aqui era Evento */
     color: "emerald",  /*gold */
     title: "Nuevas mochilas llegan!",
