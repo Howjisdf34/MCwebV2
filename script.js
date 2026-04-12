@@ -24,7 +24,7 @@ const CONFIG = {
    ══════════════════════════════════════════════════ */
 const NEWS = [
   {
-    date:  "9 Abril 2026",
+    date:  "31 Abril 2026",
     tag:   "Actualización", /*aqui era Evento */
     color: "emerald",  /*gold */
     title: "Nuevas mochilas llegan!",
