@@ -41,15 +41,6 @@ const NEWS = [
     link:  "https://mcpedl.com/bony162backpacks/",  
   },
   {
-    date:  "10 Dic 2024",
-    tag:   "Actualización",
-    color: "emerald",
-    title: "Servidor de discord mejorado",
-    desc:  "El servidor proximamente contara con diversas funcionalidades.",
-    img:   "https://cdn2.unrealengine.com/what-is-discord-1920x1080-c3d90ca45f57.jpg",
-    
-  },
-  {
     date:  "8 Abril 2026",
     tag:   "Info",
     color: "sky",
